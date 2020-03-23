@@ -1,12 +1,15 @@
 <?php
 
 namespace App;
-use App\Transaction;
-use App\User;
 use App\Scopes\BuyerScope;
+use App\Transaction;
+use App\Transformers\BuyerTransformer;
+use App\User;
 
 class Buyer extends User
 {
+	public $transformer = BuyerTransformer::class;
+
 	protected static function boot(){
 		parent::boot();
 

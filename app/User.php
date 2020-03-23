@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Transformers\UserTransformer;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -19,6 +20,8 @@ class User extends Authenticatable
     const ADMIN_USER = 'true';
 
     protected $table = "users";
+    public $transformer = UserTransformer::class;
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -34,7 +37,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'verification_token'
+        'password', 
+        'remember_token',
+        'verification_token'
     ];
 
 
